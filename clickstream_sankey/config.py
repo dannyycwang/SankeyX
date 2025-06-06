@@ -1,4 +1,4 @@
-# 顏色/設定等
+# colors and settings
 event_color_map = {
     1: '#1f77b4', 2: '#ffbe0b', 3: '#43aa8b', 4: '#fb8500', 5: '#3a86ff',
 }
