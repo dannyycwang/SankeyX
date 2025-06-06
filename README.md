@@ -1,6 +1,6 @@
 # SankeyX
 A new visualization tool for clickstream data and prediciton model
-<img width="630" alt="image" src="https://github.com/user-attachments/assets/ec9d3b2c-3039-43f0-b4f5-ced2336a8e60" />
+<img width="616" alt="image" src="https://github.com/user-attachments/assets/9a15f2f1-1f7b-4e56-8a89-3f531c273b2b" />
 
 
 ## Abstract
