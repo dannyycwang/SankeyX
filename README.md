@@ -9,3 +9,8 @@ In this study, we propose a novel visualization framework called SankeyX that co
 ## Demonstration
 
 ![image](https://github.com/user-attachments/assets/d278702e-fe14-4103-8933-783a90ae7ed2)
+
+
+## Dataset
+
+Comes from Coveo dataset: https://github.com/coveooss/shopper-intent-prediction-nature-2020
