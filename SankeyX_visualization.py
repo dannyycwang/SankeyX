@@ -1,14 +1,14 @@
 import streamlit as st
-st.set_page_config(layout="wide")  # 一定要放在最前面
+st.set_page_config(layout="wide")  # It is necessary
 
 import pandas as pd
 import plotly.graph_objects as go
 import ast
 
-# ----- Sidebar (精簡一點) -----
+# ----- Sidebar  -----
 st.sidebar.title("SankeyX Panel")
 
-# 上傳檔案
+# Upload a csv file
 uploaded_file = st.sidebar.file_uploader("Upload CSV", type=["csv"])
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
@@ -16,10 +16,10 @@ else:
     st.info("Please upload a clickstream CSV file to begin.")
     st.stop()
 
-# 控件
+# control panel
 max_rows = df.shape[0]
 num_sessions = st.sidebar.slider("N Sessions", 1, min(200, max_rows), 20)
-max_steps = st.sidebar.slider("Max Steps (Clicks)", 1, 20, 5)  # 👈 新增這一個！
+max_steps = st.sidebar.slider("Max Steps (Clicks)", 1, 20, 5)  
 session_mode = st.sidebar.radio("Order", options=["first", "last"], index=0)
 intent_types = ["All"] + sorted(df['Intent_type'].dropna().unique())
 intent_filter = st.sidebar.selectbox("Intent Type", options=intent_types, index=0)
@@ -86,7 +86,7 @@ utility_node_color = "#457b9d"
 # Sankey
 records = []
 for _, row in selected.iterrows():
-    seq = list(row['truncated_sequence'])[-max_steps:]  # 👈 這裡改成 max_steps
+    seq = list(row['truncated_sequence'])[-max_steps:]  
     seq_len = len(seq)
     all_shap_values = [row.get(f'SHAP_{i}', 0.0) for i in range(1, 21)]
     shap_values = [v * shap_mult for v in (all_shap_values[-seq_len:] if seq_len > 0 else [])]
@@ -221,10 +221,9 @@ fig = go.Figure(go.Sankey(
     )
 ))
 
-# Legend (event only, 下方置中)
-# ...上面不變...
 
-# Legend (event only, 下方置中)
+# Legend (event only)
+
 event_legend_items = [
     ("Browse", event_color_map[1]),
     ("Detail", event_color_map[2]),
